@@ -6,7 +6,7 @@ $TTL   60000
                         3600000 ; expire
                         0 ; negative cache ttl
                         )
-@                   IN      NS      dns.gsr
+@                   IN      NS      dns.gsr.
 dns           IN      A       10.0.0.21
 
 contatudo           IN      NS      dnspri.contatudo.gsr.
