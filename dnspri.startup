@@ -5,11 +5,26 @@ ip route add 0.0.0.0/0 via 10.0.0.132
 /etc/init.d/bind9 start
 /etc/init.d/snmpd start
 
-# Change permissions of the mail spool directory, so that the guest user is
-# allowed to write lock files.
+
+
+# SSH 
+adduser --disabled-password --gecos "" admin
+echo 'admin:admin' | chpasswd
+echo "admin ALL=ALL" >> /etc/sudoers
+dpkg -i /sudo.deb
+
+chown admin:admin -R /home/admin
+chmod 700 -R /home/admin
+mkdir /home/admin/.ssh/
+mv authorized_keys /home/admin/.ssh/
+chmod 644 /home/admin/.ssh/authorized_keys 
+
+
+/etc/init.d/ssh start
+############################################
+
+
 chmod a+w /var/spool/mail
-# Change permissions of the exim4 configuration file, to avoid errors due to
-# loose permissions
 chmod go-rw /etc/exim4/exim4.conf
 
 /etc/init.d/exim4 start
