@@ -15,10 +15,6 @@ dpkg -i /sudo.deb
 
 chown admin:admin -R /home/admin
 chmod 700 -R /home/admin
-mkdir /home/admin/.ssh/
-mv authorized_keys /home/admin/.ssh/
-chmod 644 /home/admin/.ssh/authorized_keys 
-
 
 /etc/init.d/ssh start
 ############################################
