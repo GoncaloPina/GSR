@@ -50,8 +50,9 @@ iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 22 -j ACCEPT
 #IMAP
 iptables -A FORWARD -i eth4 -p udp -d 10.0.0.129 --dport 25 -j ACCEPT
 iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 25 -j ACCEPT
-iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 143 -j ACCEPT
+
 #SMTP
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 143 -j ACCEPT
 
 #DNS 
 iptables -A FORWARD -i eth4 -p udp -d 10.0.0.129 --dport 53 -j ACCEPT
