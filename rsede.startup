@@ -22,3 +22,47 @@ ip route add 0.0.0.0/0 via 10.0.0.18
 /etc/init.d/zebra start
 /etc/init.d/snmpd start
 /etc/init.d/dhcp3-server start
+
+
+##FIREWALL
+
+
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+
+iptables --flush
+
+iptables -A FORWARD -i eth4 -m state --state ESTABLISHED,RELATED -j ACCEPT #garantir que quando temos conexao ha resposta#
+
+# HTTP 
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.130 --dport 80 -j ACCEPT
+
+#HTTPs
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.130 --dport 443 -j ACCEPT
+
+
+# SSH
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.131 --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.130 --dport 22 -j ACCEPT
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 22 -j ACCEPT
+
+#IMAP
+iptables -A FORWARD -i eth4 -p udp -d 10.0.0.129 --dport 25 -j ACCEPT
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 25 -j ACCEPT
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 143 -j ACCEPT
+#SMTP
+
+#DNS 
+iptables -A FORWARD -i eth4 -p udp -d 10.0.0.129 --dport 53 -j ACCEPT
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 53 -j ACCEPT
+iptables -A FORWARD -i eth4 -p udp -d 10.0.0.130 --dport 53 -j ACCEPT
+iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.130 --dport 53 -j ACCEPT
+
+
+#GUESTS
+iptables -A FORWARD -d 10.0.0.160/28 -j ACCEPT
+iptables -A FORWARD -d 10.0.0.176/28 -j ACCEPT
+
+
+iptables -A FORWARD -i eth4 -j DROP

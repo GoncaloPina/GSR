@@ -15,7 +15,7 @@ servidorhttp 	IN 		A	 	10.0.0.131
 
 intranet		IN 		A		10.0.0.130
 clientes 		IN 		A		10.0.0.130
-www			IN 		A 		10.0.0.130
+www				IN 		A 		10.0.0.130
 ftp 			IN 		A 		192.168.0.2
 imap			IN		A		10.0.0.129
 pop				IN		A		10.0.0.129
