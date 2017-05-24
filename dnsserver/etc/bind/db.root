@@ -12,8 +12,8 @@
 .			IN	NS	dnsserver.
 dnsserver.	IN	A	10.0.0.21
 
-gsr			IN      NS      dns.gsr.
-dns.gsr.	IN	A	10.0.0.21
+gsr			IN      NS      dnsserver.gsr.
+dnsserver.gsr.	IN	A	10.0.0.21
 
 
 
