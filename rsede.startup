@@ -18,6 +18,7 @@ ip link set dev eth5 up
 
 ip route add 10.0.0.0/28 via 10.0.0.18
 ip route add 0.0.0.0/0 via 10.0.0.18
+ip route add 10.0.2.72/29 via 10.0.0.130
 
 /etc/init.d/zebra start
 /etc/init.d/snmpd start
@@ -59,6 +60,10 @@ iptables -A FORWARD -i eth4 -p udp -d 10.0.0.129 --dport 53 -j ACCEPT
 iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.129 --dport 53 -j ACCEPT
 iptables -A FORWARD -i eth4 -p udp -d 10.0.0.130 --dport 53 -j ACCEPT
 iptables -A FORWARD -i eth4 -p tcp -d 10.0.0.130 --dport 53 -j ACCEPT
+
+#VPN
+iptables -A FORWARD -i eth4 -p udp -d 10.0.0.130 --dport 1194 -j ACCEPT
+
 
 
 #GUESTS
