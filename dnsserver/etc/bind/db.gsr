@@ -6,14 +6,25 @@ $TTL   60000
                         3600000 ; expire
                         0 ; negative cache ttl
                         )
-@                   IN      NS      dnsserver.gsr.
-dnsserver           IN      A       10.0.0.21
+@                  	 IN     NS      dnsserver.gsr.
+dnsserver          	 IN     A       10.0.0.21
 
-contatudo           IN      NS      dnspri.contatudo.gsr.
-dnspri.contatudo    IN      A       10.0.0.129
+contatudo          	 IN     NS      dnspri.contatudo.gsr.
+dnspri.contatudo    	IN      A       10.0.0.129
 
-contatudo           IN      NS      dnssec.contatudo.gsr.
-dnssec.contatudo    IN      A       10.0.0.130
+contatudo           	IN      NS      dnssec.contatudo.gsr.
+dnssec.contatudo    	IN      A       10.0.0.130
 
-bomcliente			IN 		NS 		serverext.bomcliente.gsr.
-serverext.bomcliente IN		A 		10.0.0.2
+bomcliente	    	IN 	NS 	serverext.bomcliente.gsr.
+serverext.bomcliente 	IN	A 	10.0.0.2
+
+
+rinternet   		IN	A	10.0.0.18
+rinternet   		IN	A	10.0.0.22
+rinternet   		IN	A	10.0.0.26
+
+
+rext  			IN	A	10.0.0.25
+
+admin 			IN	A	10.0.0.30
+

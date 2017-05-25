@@ -1,29 +1,58 @@
 $TTL   60000
-@					IN			SOA		dnsserver.gsr.		root.dnsserver.gsr. (
-							2017041201	; serial
-							28800 		; refresh
-							14400			; retry
-							3600000		; expire
-							0				; negative cache ttl
-							)
-
-@					IN			NS 		dnsserver.gsr.
-128/26			IN			NS 		dnspri.contatudo.gsr.
-128/26			IN			NS 		dnssec.contatudo.gsr.
-
-22					IN 		PTR		dnsserver.gsr.
-30					IN 		PTR		admin.gsr.
+@               IN      SOA     dnsserver.gsr.    root.dnsserver.gsr. (
+                        2006031201 ; serial
+                        28800 ; refresh
+                        14400 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
 
 
+@                  	 IN	NS      	dnsserver.gsr.
 
-129				IN			CNAME		129.128/26.0.0.10.IN-ADDR.ARPA.
-130				IN			CNAME		130.128/26.0.0.10.IN-ADDR.ARPA.
-131				IN			CNAME		130.128/26.0.0.10.IN-ADDR.ARPA.
+128/26			IN	NS 		dnspri.contatudo.gsr.
+128/26			IN	NS 		dnssec.contatudo.gsr.
+
+22			IN 	PTR		dnsserver.gsr.
+30			IN 	PTR		admin.gsr.
+
+18 			IN	PTR		rinternet.gsr.
+22 			IN	PTR		rinternet.gsr.
+26 			IN	PTR		rinternet.gsr.
 
 
-0/28				IN 		NS 		dnsserver.bomcliente.gsr.
+25			IN	PTR		rext.gsr
 
-1					IN 		CNAME		1.0/28.0.0.10.IN-ADDR.ARPA.
-2					IN 		CNAME		2.0/28.0.0.10.IN-ADDR.ARPA.
-5					IN 		CNAME		5.0/28.0.0.10.IN-ADDR.ARPA.
-6					IN		CNAME		6.0/28.0.0.10.IN-ADDR.ARPA.
+
+
+129			IN	CNAME		129.128/26.0.0.10.IN-ADDR.ARPA.
+130			IN	CNAME		130.128/26.0.0.10.IN-ADDR.ARPA.
+131			IN	CNAME		131.128/26.0.0.10.IN-ADDR.ARPA.
+162			IN	CNAME		162.128/26.0.0.10.IN-ADDR.ARPA.
+163			IN	CNAME		163.128/26.0.0.10.IN-ADDR.ARPA.
+178			IN	CNAME		178.128/26.0.0.10.IN-ADDR.ARPA.
+179			IN	CNAME		179.128/26.0.0.10.IN-ADDR.ARPA.
+146			IN	CNAME		146.128/26.0.0.10.IN-ADDR.ARPA.
+147			IN	CNAME		147.128/26.0.0.10.IN-ADDR.ARPA.
+148			IN	CNAME		148.128/26.0.0.10.IN-ADDR.ARPA.
+132			IN	CNAME		132.128/26.0.0.10.IN-ADDR.ARPA.
+177			IN	CNAME		177.128/26.0.0.10.IN-ADDR.ARPA.
+145			IN	CNAME		145.128/26.0.0.10.IN-ADDR.ARPA.
+161			IN	CNAME		161.128/26.0.0.10.IN-ADDR.ARPA.
+17			IN	CNAME		17.128/26.0.0.10.IN-ADDR.ARPA.
+
+
+0/28			IN 	NS 		dnsserver.bomcliente.gsr.
+
+1			IN 	CNAME		1.0/28.0.0.10.IN-ADDR.ARPA.
+2			IN 	CNAME		2.0/28.0.0.10.IN-ADDR.ARPA.
+5			IN 	CNAME		5.0/28.0.0.10.IN-ADDR.ARPA.
+6			IN	CNAME		6.0/28.0.0.10.IN-ADDR.ARPA.
+
+
+
+
+
+
+
+
