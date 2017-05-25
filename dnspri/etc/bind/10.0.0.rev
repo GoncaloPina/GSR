@@ -1,0 +1,33 @@
+$TTL    60000
+@               IN      SOA     dnspri.contatudo.gsr.    root.dnspri.contatudo.gsr. (
+                        2006031201 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+
+@			IN		NS 			dnspri.contatudo.gsr.
+@			IN 		NS 			dnssec.contatudo.gsr.
+
+132			IN		PTR			rsede.contatudo.gsr.
+177			IN		PTR			rporto.contatudo.gsr.
+145			IN		PTR			rsede.contatudo.gsr.
+161			IN		PTR			rlisboa.contatudo.gsr.
+
+162			IN		PTR			pc1lxv.contatudo.gsr.
+163			IN		PTR			pc2lxv.contatudo.gsr.
+178			IN		PTR			pc1portov.contatudo.gsr.
+179			IN		PTR			pc2portov.contatudo.gsr.
+146			IN		PTR			pccont.contatudo.gsr.
+147			IN		PTR			pcadmin.contatudo.gsr.
+148			IN		PTR			pcrh.contatudo.gsr.
+17			IN		PTR			rsede.contatudo.gsr.
+
+
+
+129			IN		PTR			dnspri.contatudo.gsr.	
+130			IN		PTR			dnssec.contatudo.gsr.		
+131			IN		PTR			servidorhttp.contatudo.gsr.
+
+
