@@ -12,6 +12,8 @@ chmod a+w /var/spool/mail
 # loose permissions
 chmod go-rw /etc/exim4/exim4.conf
 
+a2ensite bomcliente.conf
+/etc/init.d/apache2 start
 /etc/init.d/exim4 start
 /etc/init.d/inetd start
 

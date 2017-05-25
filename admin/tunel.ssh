@@ -1,5 +1,7 @@
 ssh admin@localhost -p 8080
-ssh -L 808$1:192.168.0.1:22 admin@10.0.0.129
+
+ssh -L 8080:sigma02.tecnico.pt:22 istxxx@sigma01.tecnico.pt
+ssh -L 8080:192.168.0.1:22 admin@10.0.0.129
 ssh -L 808$1:192.168.0.2:22 admin@10.0.0.129
 ssh -L 808$1:192.168.0.1:22 admin@10.0.0.130
 ssh -L 808$1:192.168.0.2:22 admin@10.0.0.130
