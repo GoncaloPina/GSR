@@ -4,6 +4,9 @@ ip route add 0.0.0.0/0 via 10.0.0.29
 
 # SSH
 /etc/init.d/ssh start
-chmod 700 -R /root/.ssh
+chmod 700 -R /root/
+
+dpkg -i /resolv.deb
+
 
  /etc/init.d/inetd restart 

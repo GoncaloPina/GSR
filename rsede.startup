@@ -34,7 +34,7 @@ iptables -P FORWARD ACCEPT
 
 iptables --flush
 
-iptables -A FORWARD -i eth4 -m state --state ESTABLISHED,RELATED -j ACCEPT #garantir que quando temos conexao ha resposta#
+iptables -A FORWARD -i eth4 -m state --state ESTABLISHED,RELATED -j ACCEPT #garantir que quando temos conexao ha resposta
 
 
 # HTTP 
@@ -81,31 +81,28 @@ iptables -A FORWARD -i eth4 -p udp -d 10.0.0.130 --dport 1194 -j ACCEPT
 
 iptables -t nat -A PREROUTING -p tcp -s 10.0.0.160/27  --dport 80 -d 10.0.0.130 -j DNAT --to-destination 10.0.0.131:3128
 iptables -t nat -A PREROUTING -p udp -s 10.0.0.160/27  --dport 80 -d 10.0.0.130 -j DNAT --to-destination 10.0.0.131:3128
-iptables -t nat -A PREROUTING -p udp -s 10.0.0.128/26  --dport 80 -o eth4 -j DNAT --to-destination 10.0.0.131:3128
-
-#iptables -t nat -A PREROUTING -p tcp -s 10.0.0.160/28  --dport 80 -j DNAT --to-destination 10.0.0.131:3128
-#iptables -t nat -A PREROUTING -p tcp -s 10.0.0.176/28  --dport 80 -j DNAT --to-destination 10.0.0.131:3128
-#iptables -t nat -A PREROUTING -p tcp -s 10.0.0.144/28  --dport 80 -j DNAT --to-destination 10.0.0.131:3128
-#iptables -t nat -A PREROUTING -p tcp -s 10.0.2.64/28   --dport 80 -j DNAT --to-destination 10.0.0.131:3128
-#iptables -t nat -A PREROUTING -p tcp -s 10.0.0.129	   --dport 80 -j DNAT --to-destination 10.0.0.131:3128
-#iptables -t nat -A PREROUTING -p tcp -s 10.0.0.130 	   --dport 80 -j DNAT --to-destination 10.0.0.131:3128
-
-#iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 3128
-
-#iptables -A POSTROUTING -s 10.0.0.160/28 -j MASQUERADE COMMIT
-#iptables -A POSTROUTING -s 10.0.0.176/28 -j MASQUERADE COMMIT
-#iptables -A POSTROUTING -s 10.0.0.144/28 -j MASQUERADE COMMIT
-#iptables -A POSTROUTING -s 10.0.2.64/28 -j MASQUERADE COMMIT
+iptables -t nat -A PREROUTING -p udp -o eth4 -s 10.0.0.144/28 --dport 80 -d 10.0.0.130 -j DNAT --to-destination 10.0.0.131:3128
+iptables -t nat -A PREROUTING -p tcp -o eth4 -s 10.0.0.144/28 --dport 80 -d 10.0.0.130 -j DNAT --to-destination 10.0.0.131:3128
+iptables -t nat -A PREROUTING -p tcp -o eth4 -s 10.0.0.129 --dport 80 -d 10.0.0.130	-j DNAT --to-destination 10.0.0.131:3128
+iptables -t nat -A PREROUTING -p tcp -o eth4 -s 10.0.0.130 --dport 80 -d 10.0.0.130 -j DNAT --to-destination 10.0.0.131:3128
 
 
 #GUESTS
 iptables -A FORWARD -d 10.0.0.160/28 -j ACCEPT
 iptables -A FORWARD -d 10.0.0.176/28 -j ACCEPT
 
-iptables -A FORWARD -s 10.0.0.128/28 -o eth4 -j ACCEPT
 
+iptables -A FORWARD -o eth4 -s 10.0.0.128/26 -j ACCEPT
+iptables -A FORWARD -o eth4 -s 10.0.2.64/26 -j ACCEPT
+
+#spoofing
 iptables -A FORWARD -i eth4 -j DROP
 iptables -A FORWARD -o eth4 -j DROP
+iptables -A FORWARD -s 10.0.2.73 -o eth4 -j DROP
+
+iptables -A FORWARD -s 10.0.0.160/28 -d 192.168.0.0/16 -j DROP
+iptables -A FORWARD -s 10.0.0.176/28 -d 192.168.0.0/16 -j DROP
+
 
 iptables -A FORWARD -p tcp 10.0.0.130 --dport 80 -j DROP
 iptables -A FORWARD -p udp 10.0.0.130 --dport 80 -j DROP

@@ -14,4 +14,5 @@ $TTL    60000
 69			IN			PTR			rporto.contatudo.gsr.
 66			IN			PTR			rsede.contatudo.gsr.
 70			IN			PTR			rlisboa.contatudo.gsr.
+73			IN			PTR			vpnserver.contatudo.gsr.
 
